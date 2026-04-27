@@ -165,28 +165,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Simple Scroll Animation (Intersection Observer) ---
-    const animateElements = document.querySelectorAll('.section-title, .about-content, .skills-container, .contact-container');
+    // --- Scroll Reveal Animation ---
+    const revealElements = document.querySelectorAll('.section-title, .about-content, .skills-container, .contact-container, .expertise-card');
     
-    // Initial hidden state
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
-    });
-    
-    const observer = new IntersectionObserver((entries) => {
+    const revealOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+                entry.target.classList.add('revealed');
+                revealOnScroll.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     });
     
-    animateElements.forEach(el => observer.observe(el));
+    revealElements.forEach(el => {
+        el.classList.add('reveal-element');
+        revealOnScroll.observe(el);
+    });
+    
+    // --- Typewriter Effect ---
+    const titleElement = document.getElementById('typewriter-title');
+    const clickHint = document.getElementById('click-hint');
+    const text = 'PORTFOLIO';
+    let index = 0;
+
+    // Reset title element to ensure it's empty
+    if (titleElement) titleElement.textContent = '';
+
+    function type() {
+        if (index < text.length) {
+            titleElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 150);
+        } else {
+            // Typing finished
+            document.querySelector('.type-cursor').style.display = 'none';
+            if (clickHint) clickHint.classList.add('visible');
+        }
+    }
+
+    // Start typing after a short delay
+    setTimeout(type, 1000);
+
+    // --- Cover Section Click Interaction ---
+    const coverContent = document.querySelector('.cover-content');
+    if (coverContent) {
+        coverContent.style.cursor = 'pointer';
+        coverContent.addEventListener('click', () => {
+            titleElement.classList.add('clicked');
+            
+            // Subtle flash effect on body
+            document.body.style.backgroundColor = '#111';
+            setTimeout(() => {
+                document.body.style.backgroundColor = '';
+            }, 100);
+
+            // Scroll to next section after animation
+            setTimeout(() => {
+                const nextSection = document.getElementById('intro');
+                if (nextSection) {
+                    const headerHeight = header.offsetHeight;
+                    const offsetPosition = nextSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                // Reset title state after scroll
+                setTimeout(() => {
+                    titleElement.classList.remove('clicked');
+                }, 1000);
+            }, 600);
+        });
+    }
 });
