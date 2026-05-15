@@ -887,6 +887,24 @@ img {
     opacity: 1;
 }
 
+.expertise-card {
+    animation: floating 4s ease-in-out infinite;
+}
+
+.expertise-card:nth-child(even) {
+    animation-delay: -2s;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.expertise-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-15px) scale(1.02);
+}
+
 
 
 .expertise-icon {
@@ -976,6 +994,8 @@ img {
     background: var(--gradient-primary);
     border-radius: 3px;
     position: relative;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tools-grid {
@@ -1225,4 +1245,19 @@ textarea.form-control {
     .project-grid {
         grid-template-columns: 1fr;
     }
+}
+/* Reveal Animations */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.expertise-card.reveal-element {
+    transition-delay: calc(var(--delay) * 0.1s);
 }

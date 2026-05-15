@@ -172,6 +172,16 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
+                
+                // If it's a progress bar, animate it
+                if (entry.target.classList.contains('skills-container')) {
+                    const progressBars = entry.target.querySelectorAll('.progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    });
+                }
+                
                 revealOnScroll.unobserve(entry.target);
             }
         });
@@ -180,8 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -50px 0px'
     });
     
-    revealElements.forEach(el => {
+    revealElements.forEach((el, index) => {
         el.classList.add('reveal-element');
+        // Add staggered delay for expertise cards
+        if (el.classList.contains('expertise-card')) {
+            el.style.setProperty('--delay', index % 4);
+        }
         revealOnScroll.observe(el);
     });
     
