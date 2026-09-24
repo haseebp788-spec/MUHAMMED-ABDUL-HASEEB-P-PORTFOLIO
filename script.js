@@ -255,4 +255,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     }
+
+    // --- 3D Design Tools Hub Cursor Tilt ---
+    const toolsHub = document.getElementById('toolsHub');
+    const hubScene = document.querySelector('.hub-3d-scene');
+
+    if (toolsHub && hubScene) {
+        toolsHub.addEventListener('mousemove', (e) => {
+            const rect = toolsHub.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            const tiltX = -(y / (rect.height / 2)) * 18;
+            const tiltY = (x / (rect.width / 2)) * 22;
+            
+            hubScene.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+
+        toolsHub.addEventListener('mouseleave', () => {
+            hubScene.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
+    }
 });
