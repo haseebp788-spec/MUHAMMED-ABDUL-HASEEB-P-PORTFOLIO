@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgStudio" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#2a2d34" />
+      <stop offset="50%" stop-color="#15171b" />
+      <stop offset="100%" stop-color="#0a0b0d" />
+    </radialGradient>
+
+    <!-- Phone Bezel & Metallic Gradients -->
+    <linearGradient id="phoneBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="screenGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+
+    <!-- Banner Gradient -->
+    <linearGradient id="promoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="60%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#075985" />
+    </linearGradient>
+
+    <linearGradient id="bubbleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Tag Badge Fill -->
+    <linearGradient id="tagBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f242d" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f1217" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Rock/Base Gradient -->
+    <linearGradient id="rockGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#33383f" />
+      <stop offset="40%" stop-color="#1c1f24" />
+      <stop offset="100%" stop-color="#090a0c" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="phoneShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feGaussianBlur stdDeviation="24" result="blur" />
+      <feOffset dx="0" dy="28" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.65" /></feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Studio Background -->
+  <rect width="1000" height="700" fill="url(#bgStudio)" />
+
+  <!-- Corner Badges -->
+  <!-- Top Left: MOBILE APP -->
+  <g transform="translate(40, 40)">
+    <rect width="150" height="42" rx="10" fill="url(#tagBg)" stroke="#334155" stroke-width="1.2" />
+    <text x="75" y="26" fill="#f8fafc" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" text-anchor="middle">MOBILE APP</text>
+  </g>
+
+  <!-- Top Right: CASE STUDY & UI/UX -->
+  <g transform="translate(810, 40)">
+    <rect width="150" height="42" rx="10" fill="url(#tagBg)" stroke="#334155" stroke-width="1.2" />
+    <text x="75" y="26" fill="#f8fafc" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" text-anchor="middle">CASE STUDY</text>
+  </g>
+
+  <g transform="translate(875, 96)">
+    <rect width="85" height="38" rx="8" fill="url(#tagBg)" stroke="#334155" stroke-width="1.2" />
+    <text x="42.5" y="24" fill="#f8fafc" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" text-anchor="middle">UI/UX</text>
+  </g>
+
+  <!-- Rocky Pedestal at bottom -->
+  <path d="M 0 540 Q 220 520 420 540 L 530 550 Q 750 510 1000 540 L 1000 700 L 0 700 Z" fill="url(#rockGrad)" />
+  <path d="M 0 540 L 180 570 L 320 555 L 430 590 L 570 560 L 720 600 L 880 560 L 1000 575 L 1000 700 L 0 700 Z" fill="#0d0e11" opacity="0.7" />
+  <!-- Rock Texture Highlights -->
+  <path d="M 50 560 L 140 550 L 220 580 L 160 620 Z" fill="#252a32" opacity="0.6" />
+  <path d="M 380 560 L 460 550 L 510 590 L 430 620 Z" fill="#252a32" opacity="0.5" />
+  <path d="M 680 570 L 780 555 L 850 595 L 750 635 Z" fill="#20252c" opacity="0.6" />
+
+  <!-- Center iPhone Mockup Frame -->
+  <g transform="translate(370, 120)" filter="url(#phoneShadow)">
+    <!-- Phone Outer Shell / Titanium Edge -->
+    <rect width="260" height="520" rx="44" fill="url(#phoneBody)" stroke="#64748b" stroke-width="2" />
+    <!-- Inner Black Border -->
+    <rect x="5" y="5" width="250" height="510" rx="40" fill="#090d16" />
+
+    <!-- Phone Screen Area -->
+    <g transform="translate(10, 10)">
+      <rect width="240" height="500" rx="36" fill="url(#screenGlass)" />
+
+      <!-- Dynamic Island -->
+      <rect x="85" y="10" width="70" height="18" rx="9" fill="#000000" />
+      <circle cx="143" cy="19" r="4" fill="#1e293b" />
+
+      <!-- Status Bar -->
+      <text x="24" y="24" fill="#0f172a" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">9:41</text>
+      <!-- Signal & Battery Icons -->
+      <g transform="translate(195, 15)">
+        <rect x="0" y="6" width="3" height="6" rx="1" fill="#0f172a" />
+        <rect x="5" y="4" width="3" height="8" rx="1" fill="#0f172a" />
+        <rect x="10" y="2" width="3" height="10" rx="1" fill="#0f172a" />
+        <rect x="18" y="2" width="18" height="10" rx="3" fill="none" stroke="#0f172a" stroke-width="1.5" />
+        <rect x="20" y="4" width="12" height="6" rx="1.5" fill="#0f172a" />
+      </g>
+
+      <!-- App Header / Search Bar -->
+      <g transform="translate(16, 42)">
+        <rect width="208" height="32" rx="10" fill="#f1f5f9" />
+        <circle cx="20" cy="16" r="5" stroke="#94a3b8" stroke-width="1.5" fill="none" />
+        <line x1="24" y1="20" x2="28" y2="24" stroke="#94a3b8" stroke-width="1.5" />
+        <text x="36" y="20" fill="#94a3b8" font-family="'Outfit', sans-serif" font-size="11">Search Services...</text>
+      </g>
+
+      <!-- User Greeting -->
+      <g transform="translate(16, 92)">
+        <text x="0" y="10" fill="#64748b" font-family="'Outfit', sans-serif" font-size="10" font-weight="500">Good Morning</text>
+        <text x="0" y="28" fill="#0f172a" font-family="'Outfit', sans-serif" font-size="16" font-weight="800">James Madison</text>
+      </g>
+
+      <!-- Promo Offer Banner (NO HUMAN - Clean laundry folded clothes & bubble texture) -->
+      <g transform="translate(16, 132)">
+        <!-- Banner Background -->
+        <rect width="208" height="86" rx="14" fill="url(#promoGrad)" />
+        
+        <!-- Abstract Clean Bubbles (No human image) -->
+        <circle cx="180" cy="24" r="28" fill="url(#bubbleGrad)" />
+        <circle cx="150" cy="65" r="18" fill="url(#bubbleGrad)" />
+        <circle cx="195" cy="60" r="14" fill="url(#bubbleGrad)" />
+
+        <!-- Folded Clean Towels / Clothes Illustration (Replacing the person) -->
+        <g transform="translate(142, 30)">
+          <!-- Towel 1 (bottom) -->
+          <rect x="0" y="30" width="52" height="12" rx="5" fill="#e0f2fe" opacity="0.9" />
+          <path d="M 0 36 Q 26 38 52 36" stroke="#0284c7" stroke-width="1" fill="none" opacity="0.4" />
+          <!-- Towel 2 (middle) -->
+          <rect x="4" y="18" width="45" height="11" rx="5" fill="#bae6fd" opacity="0.9" />
+          <!-- Towel 3 (top) -->
+          <rect x="8" y="7" width="38" height="10" rx="4" fill="#ffffff" opacity="0.95" />
+          <!-- Sparkle -->
+          <polygon points="12,2 14,5 17,7 14,9 12,12 10,9 7,7 10,5" fill="#fef08a" />
+        </g>
+
+        <!-- Limited Offer Tag -->
+        <rect x="12" y="12" width="76" height="18" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1" />
+        <text x="50" y="24" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="8" font-weight="800" text-anchor="middle" letter-spacing="0.5">LIMITED OFFER</text>
+
+        <!-- Banner Headline -->
+        <text x="12" y="48" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="14" font-weight="800">25% OFF on</text>
+        <text x="12" y="66" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="14" font-weight="800">Dry Cleaning</text>
+      </g>
+
+      <!-- Quick Action Buttons -->
+      <g transform="translate(16, 230)">
+        <!-- Schedule -->
+        <g transform="translate(0, 0)">
+          <rect width="64" height="54" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+          <rect x="22" y="10" width="20" height="18" rx="3" stroke="#0284c7" stroke-width="1.6" fill="none" />
+          <line x1="22" y1="16" x2="42" y2="16" stroke="#0284c7" stroke-width="1.4" />
+          <text x="32" y="42" fill="#475569" font-family="'Outfit', sans-serif" font-size="9" font-weight="600" text-anchor="middle">Schedule</text>
+        </g>
+
+        <!-- Express -->
+        <g transform="translate(72, 0)">
+          <rect width="64" height="54" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+          <polygon points="33,10 27,20 32,20 31,30 38,18 33,18" fill="#0284c7" />
+          <text x="32" y="42" fill="#475569" font-family="'Outfit', sans-serif" font-size="9" font-weight="600" text-anchor="middle">Express</text>
+        </g>
+
+        <!-- Track -->
+        <g transform="translate(144, 0)">
+          <rect width="64" height="54" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" />
+          <rect x="22" y="14" width="14" height="12" rx="2" stroke="#0284c7" stroke-width="1.6" fill="none" />
+          <path d="M 36 18 L 42 18 L 44 23 L 44 26 L 36 26 Z" stroke="#0284c7" stroke-width="1.4" fill="none" />
+          <circle cx="26" cy="27" r="2.5" fill="#0284c7" />
+          <circle cx="40" cy="27" r="2.5" fill="#0284c7" />
+          <text x="32" y="42" fill="#475569" font-family="'Outfit', sans-serif" font-size="9" font-weight="600" text-anchor="middle">Track</text>
+        </g>
+      </g>
+
+      <!-- Services Section Header -->
+      <g transform="translate(16, 302)">
+        <text x="0" y="10" fill="#0f172a" font-family="'Outfit', sans-serif" font-size="12" font-weight="800">Our Services</text>
+        <text x="208" y="10" fill="#0284c7" font-family="'Outfit', sans-serif" font-size="9" font-weight="700" text-anchor="end">View All &gt;</text>
+      </g>
+
+      <!-- 2x2 Service Cards Grid -->
+      <!-- Wash & Fold -->
+      <g transform="translate(16, 322)">
+        <rect width="99" height="74" rx="12" fill="#f0f9ff" stroke="#e0f2fe" stroke-width="1" />
+        <circle cx="24" cy="22" r="8" fill="#bae6fd" />
+        <circle cx="24" cy="22" r="4" fill="#0284c7" />
+        <text x="12" y="44" fill="#0369a1" font-family="'Outfit', sans-serif" font-size="10" font-weight="700">Wash &amp; Fold</text>
+        <text x="12" y="58" fill="#64748b" font-family="'Outfit', sans-serif" font-size="7.5">Everyday laundry care</text>
+      </g>
+
+      <!-- Dry Clean -->
+      <g transform="translate(125, 322)">
+        <rect width="99" height="74" rx="12" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1" />
+        <circle cx="24" cy="22" r="8" fill="#bbf7d0" />
+        <path d="M 20 20 L 24 16 L 28 20 L 24 26 Z" fill="#16a34a" />
+        <text x="12" y="44" fill="#15803d" font-family="'Outfit', sans-serif" font-size="10" font-weight="700">Dry Clean</text>
+        <text x="12" y="58" fill="#64748b" font-family="'Outfit', sans-serif" font-size="7.5">Suits, silks, &amp; wear</text>
+      </g>
+
+      <!-- Steam Press -->
+      <g transform="translate(16, 404)">
+        <rect width="99" height="74" rx="12" fill="#fefce8" stroke="#fef08a" stroke-width="1" />
+        <circle cx="24" cy="22" r="8" fill="#fef08a" />
+        <path d="M 19 25 L 29 25 L 27 20 L 21 20 Z" fill="#ca8a04" />
+        <text x="12" y="44" fill="#a16207" font-family="'Outfit', sans-serif" font-size="10" font-weight="700">Steam Press</text>
+        <text x="12" y="58" fill="#64748b" font-family="'Outfit', sans-serif" font-size="7.5">Crisp wrinkle-free</text>
+      </g>
+
+      <!-- Premium Dry Clean -->
+      <g transform="translate(125, 404)">
+        <rect width="99" height="74" rx="12" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1" />
+        <circle cx="24" cy="22" r="8" fill="#e9d5ff" />
+        <polygon points="24,16 26,21 31,21 27,24 29,29 24,26 19,29 21,24 17,21 22,21" fill="#9333ea" />
+        <text x="12" y="44" fill="#7e22ce" font-family="'Outfit', sans-serif" font-size="10" font-weight="700">Premium Care</text>
+        <text x="12" y="58" fill="#64748b" font-family="'Outfit', sans-serif" font-size="7.5">Delicate garments</text>
+      </g>
+    </g>
+  </g>
+</svg>
